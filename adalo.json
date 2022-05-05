@@ -1,0 +1,12 @@
+{
+  "displayName": "Calendar",
+  "components": [
+    {
+      "name": "CalendarComponent",
+      "manifest": "./src/components/CalendarComponent/manifest.json"
+    }
+  ],
+  "author": "",
+  "description": "",
+  "logo": "./example-logo.png"
+}
