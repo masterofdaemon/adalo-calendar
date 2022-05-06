@@ -349,9 +349,10 @@ class DynamicCalendar extends Component {
           calAgendaObject[day] = {
             dots: this.multiDotRender(
               this.state.datesHash.get(day),
-              activeColor
+              "white"
+              //activeColor
             ),
-            selected: selected,
+            selected: true,
           }
         })
       } else {
@@ -364,7 +365,7 @@ class DynamicCalendar extends Component {
             periods: [
               { startingDay: false, endingDay: false, color: activeColor },
             ],
-            selected: selected,
+            selected: true,
           }
         })
       }
@@ -378,8 +379,8 @@ class DynamicCalendar extends Component {
             theme={{
               calendarBackground: bgColor,
               textSectionTitleColor: textColor,
-              selectedDayBackgroundColor: bgColor,
-              selectedDayTextColor: activeColor,
+              // selectedDayBackgroundColor: bgColor,
+              // selectedDayTextColor: activeColor,
               todayTextColor: textColor,
               dayTextColor: textColor,
               textDisabledColor: disabledColor,
@@ -406,19 +407,19 @@ class DynamicCalendar extends Component {
                   ...customFontStyles.bodyFont,
                 },
               },
-              'stylesheet.day.basic': {
-                base: {
-                  height: this.props._height / 10,
-                  alignItems: 'center',
-                  textAlign: 'center',
-                },
-              },
-              'stylesheet.day.multiDot': {
-                base: {
-                  height: this.props._height / 10,
-                  alignItems: 'center',
-                },
-              },
+              // 'stylesheet.day.basic': {
+              //   base: {
+              //     height: this.props._height / 10,
+              //     alignItems: 'center',
+              //     textAlign: 'center',
+              //   },
+              // },
+              // 'stylesheet.day.multiDot': {
+              //   base: {
+              //     height: this.props._height / 10,
+              //     alignItems: 'center',
+              //   },
+              // },
             }}
             firstDay={mondayBeginBool}
             onDayPress={this.onDayPress}
