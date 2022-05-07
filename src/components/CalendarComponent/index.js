@@ -123,6 +123,7 @@ class DynamicCalendar extends Component {
       openAccordion,
       _height,
     } = this.props
+    console.log(items)
     const timeFormat = items ? items[0]?.agenda.timeFormat || false : false
     const mondayBeginBool = mondayBegin === 'Sunday' ? 0 : 1
     LocaleConfig.defaultLocale = language
