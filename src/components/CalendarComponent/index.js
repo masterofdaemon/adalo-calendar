@@ -124,7 +124,27 @@ class DynamicCalendar extends Component {
       openAccordion,
       _height,
     } = this.props
-    console.log(items)
+    console.log("items1", items)
+    console.log("items2", items2)
+    if (items===undefined) {
+      return null
+    }
+    if(items2!==undefined&&items2.length>0) {
+      // items.forEach((item, i) => {
+        let authHeader = {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer d7848sb3gyhs4n664qiflg6ud`
+          }
+        }
+        // https://api.adalo.com/v0/apps/af5a7dfe-796e-4f43-992c-471f38df9e39/collections/t_0l3a2k7y7cow7j176r3sp5zh6
+        fetch(`https://api.adalo.com/v0/apps/af5a7dfe-796e-4f43-992c-471f38df9e39/collections/t_0l3a2k7y7cow7j176r3sp5zh6`, authHeader).then
+        (res => res.json()).then(data => {
+          console.log("data", data)
+        })
+     // })
+    }
     const timeFormat = items ? items[0]?.agenda.timeFormat || false : false
     const mondayBeginBool = mondayBegin === 'Sunday' ? 0 : 1
     LocaleConfig.defaultLocale = language
