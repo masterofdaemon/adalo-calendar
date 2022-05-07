@@ -113,6 +113,7 @@ class DynamicCalendar extends Component {
     // calendar
     let {
       items,
+      items2,
       language,
       mondayBegin,
       colors,
