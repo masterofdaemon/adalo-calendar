@@ -8,16 +8,19 @@
   "props": [
     {
       "name": "items",
+      "displayName": "list default",
+      "type": "list"
+    },
+    {
+      "name": "items1",
       "displayName": "Work days",
-      "type": "list",
-      "listControl": { "sort": false, "limit": false }
+      "type": "list"
     },
     {
       "name": "items2",
       "displayName": "Orders",
-      "type": "list",
-      "listControl": { "sort": false, "limit": false }
-    },
+      "type": "list"
+        },
     {
       "name": "language",
       "displayName": "Language",

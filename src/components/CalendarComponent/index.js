@@ -24,7 +24,26 @@ class DynamicCalendar extends Component {
       agendaEvents: [],
     }
     setupLocales()
+
+    console.log('componentDidMount')
+ 
+
+    // if(items2!==undefined&&items2.length>3) {
+    //     let authHeader = {
+    //       headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json',
+    //         'Authorization': `Bearer d7848sb3gyhs4n664qiflg6ud`
+    //       }
+    //     }
+    //     fetch(`https://api.adalo.com/v0/apps/af5a7dfe-796e-4f43-992c-471f38df9e39/collections/t_5qu5j8v14140amecgfoz7xs5u`, authHeader).then
+    //     (res => res.json()).then(data => {
+    //       console.log("data", data)
+
+    //     })
+    // }
   }
+
 
   // runs when user clicks calendar day
   onDayPress = (day) => {
@@ -113,6 +132,7 @@ class DynamicCalendar extends Component {
     // calendar
     let {
       items,
+      items1,
       items2,
       language,
       mondayBegin,
@@ -124,27 +144,19 @@ class DynamicCalendar extends Component {
       openAccordion,
       _height,
     } = this.props
-    console.log("items1", items)
+    console.log("items", items)
+    console.log("items1", items1)
     console.log("items2", items2)
     if (items===undefined) {
-      return null
+      items = []
     }
-    if(items2!==undefined&&items2.length>0) {
-      // items.forEach((item, i) => {
-        let authHeader = {
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer d7848sb3gyhs4n664qiflg6ud`
-          }
-        }
-        // https://api.adalo.com/v0/apps/af5a7dfe-796e-4f43-992c-471f38df9e39/collections/t_0l3a2k7y7cow7j176r3sp5zh6
-        fetch(`https://api.adalo.com/v0/apps/af5a7dfe-796e-4f43-992c-471f38df9e39/collections/t_0l3a2k7y7cow7j176r3sp5zh6`, authHeader).then
-        (res => res.json()).then(data => {
-          console.log("data", data)
-        })
-     // })
+    if (items1===undefined) { 
+      items1 = []
     }
+    if (items2===undefined) {
+      items2 = []
+    }
+   
     const timeFormat = items ? items[0]?.agenda.timeFormat || false : false
     const mondayBeginBool = mondayBegin === 'Sunday' ? 0 : 1
     LocaleConfig.defaultLocale = language
@@ -209,7 +221,9 @@ class DynamicCalendar extends Component {
       colors
     // navigation
     let { defDate, minDate, maxDate, changeMonths } = navigation
-    if (maxDate === '2021-01-01') {
+    maxDate = '2023-01-01'
+    minDate = '2020-01-01'
+    if (maxDate === '2023-01-01') {
       maxDate = new Date().getFullYear()
       maxDate = `${maxDate + 1}-01-01`
     }
